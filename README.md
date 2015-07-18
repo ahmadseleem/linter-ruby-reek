@@ -1,11 +1,12 @@
-Linter-Ruby-Reek => LRR
+Linter-Ruby-Reek = LRR
 =========================
 
 ## LRR: A neat Linter for Ruby files.
 
 ¶¶ This plugin *seriously* Works fine with reek! ¶¶
 
-We use *Reek* Ruby gem: a tool that examines Ruby classes, modules and methods.
+Using *Reek* Ruby gem: a tool that examines Ruby classes, modules and methods.
+
 ∑ ∑ Reports any code SMELLS. ∑ ∑
 
 We use The interface of the beautifull [Linter](https://github.com/AtomLinter/Linter)
