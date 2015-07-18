@@ -22,7 +22,7 @@
 
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/AtomLinter/linter-ruby-reek/issues"
+    "url": "https://github.com/ahmadseleem/linter-ruby-reek/issues"
   },
-  "homepage": "https://github.com/AtomLinter/linter-ruby-reek",
+  "homepage": "https://github.com/ahmadseleem/linter-ruby-reek",
 }

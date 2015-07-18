@@ -7,7 +7,7 @@ Linter-Ruby-Reek = LRR
 
 Using *Reek* Ruby gem: a tool that examines Ruby classes, modules and methods.
 
-∑ ∑ Reports any code SMELLS. ∑ ∑
+∑ ∑ Reports any code SMELLS it detects. ∑ ∑
 
 We use The interface of the beautifull [Linter](https://github.com/AtomLinter/Linter)
 to prived the neet features of [Reek](https://github.com/troessner/reek).
