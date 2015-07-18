@@ -8,10 +8,12 @@
     "type": "git",
     "url": "https://github.com/ahmadseleem/linter-ruby-reek.git"
   },
+
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
+
   "providedServices": {
     "linter": {
       "versions": {
@@ -24,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/ahmadseleem/linter-ruby-reek/issues"
   },
-  "homepage": "https://github.com/ahmadseleem/linter-ruby-reek",
+  "homepage": "https://github.com/ahmadseleem/linter-ruby-reek"
 }
