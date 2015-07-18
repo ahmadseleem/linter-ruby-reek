@@ -1,7 +1,7 @@
 {
   "name": "linter-ruby-reek",
   "main": "./lib/linter-ruby-reek",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "We use *Reek*: a tool that examines Ruby classes, modules and methods. Reports any code SMELLS.",
   "repository": {
     "type": "git",
