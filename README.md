@@ -3,8 +3,6 @@ Linter-Ruby-Reek = LRR
 
 ## LRR: A neat Linter for Ruby files.
 
-¶¶ This plugin *seriously* Works fine with reek! ¶¶
-
 Using *Reek* Ruby gem: a tool that examines Ruby classes, modules and methods.
 
 ∑ ∑ Reports any code SMELLS it detects. ∑ ∑
@@ -37,7 +35,7 @@ Add reek path:
 
 ```
 'linter-ruby-reek':
-  reekExecutablePath: "/path/to/your/reek/here"
+  executablePath: "/path/to/your/reek/here"
 ```
 - Run **`which reek`** to find the path **or** run **`rbenv which reek`** for rbenv users.
 - If you don't, **`reek`** will be the default settings.
