@@ -9,7 +9,7 @@ module.exports =
 
   activate: ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.config.observe 'linter-reek.executablePath',
+    @subscriptions.add atom.config.observe 'linter-ruby-reek.executablePath',
      (executablePath) =>
         @executablePath = executablePath
 
