@@ -10,7 +10,7 @@ module.exports =
   activate: ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.config.observe 'linter-ruby-reek.executablePath',
-     (executablePath) =>
+      (executablePath) =>
         @executablePath = executablePath
 
   deactivate: ->
@@ -39,16 +39,17 @@ module.exports =
               info        = {"errors": []}
               info.errors = (err for err in json)
 
-              info.errors.shift();
-              info.errors.pop();
+              info.errors.shift()
+              info.errors.pop()
 
               return resolve [] unless info?
               return resolve [] if info.passed
 
               resolve info.errors.map (error) ->
+                errorMessage = error.split(':').slice(2).join(':')
                 type: 'warning'
-                text: error.split(':')[2]           # text: error.message,
-                filePath: filePath                  # filePath: error.file or filePath,
+                text: errorMessage        # text: error.message,
+                filePath: filePath        # filePath: error.file or filePath,
                 range: [
                   [parseInt(error.split(':')[1])-1, 0],
                   [parseInt(error.split(':')[1])-1, 80]
