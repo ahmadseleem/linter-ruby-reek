@@ -1,4 +1,4 @@
-{BufferedProcess, CompositeDisposable} = require 'atom'
+{BufferedProcess, CompositeDisposable, File} = require 'atom'
 
 module.exports =
   config:
@@ -6,12 +6,19 @@ module.exports =
       type: 'string'
       description: 'The path to the Reek executable. Find by running `which reek` or `rbenv which reek`'
       default: 'reek'
+    configPath:
+      type: 'string'
+      description: 'The path to the Reek config. Default is config.reek (optional)'
+      default: 'config.reek'
 
   activate: ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.config.observe 'linter-ruby-reek.executablePath',
      (executablePath) =>
         @executablePath = executablePath
+    @subscriptions.add atom.config.observe 'linter-ruby-reek.configPath',
+     (configPath) =>
+        @configPath = configPath
 
   deactivate: ->
     @subscriptions.dispose()
@@ -25,10 +32,18 @@ module.exports =
         new Promise (resolve, reject) =>
           filePath = TextEditor.getPath()
           json = []
+          args = [filePath, "-s"]
+
+          projectPath = atom.project.getPaths()[0]
+          absConfigPath = "#{projectPath}/#{@configPath}"
+          configFile = new File(absConfigPath, false)
+
+          if configFile.existsSync()
+            args.push "-c", "#{absConfigPath}"
+
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '-s']
-
+            args: args
             stdout: (data) ->
               json = data.split('\n')
 
