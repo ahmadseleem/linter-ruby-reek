@@ -63,7 +63,7 @@ module.exports =
 
               resolve info.errors.map (error) ->
                 errorName = error.split(':')[2].trim()
-                errorDesc = error.split(':')[3].split('[')[0].trim()
+                errorDesc = error.split(': ')[2].split('[http')[0].trim()
                 docLink   = error.match(docLinkPattern)[1]
                 errBadge  = '<span class="badge badge-flexible">reek</span>'
                 errHtml   = "#{errBadge} <a href='#{docLink}'>#{errorName}</a>: #{errorDesc}"
