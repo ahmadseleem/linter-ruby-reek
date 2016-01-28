@@ -34,11 +34,26 @@ Add reek path:
 **~/.atom/config.cson** (choose Open Your Config in Atom menu).
 
 ```
-'linter-ruby-reek':
+"linter-ruby-reek":
   executablePath: "/path/to/your/reek/here"
 ```
 - Run **`which reek`** to find the path **or** run **`rbenv which reek`** for rbenv users.
 - If you don't, **`reek`** will be the default settings.
+
+### Reek Configuration Path
+
+Add reek configuration path (if it's not default config.reek):
+- Up here in the **settings panel**
+
+**or**
+
+- here:
+**~/.atom/config.cson** (choose Open Your Config in Atom menu).
+
+```
+"linter-ruby-reek":
+  configPath: "test.reek"
+```
 
 **NOTE - 1**:
 - Open atom from the terminal if you don't see the linter working, it's Atom
