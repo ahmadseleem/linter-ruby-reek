@@ -48,7 +48,6 @@ module.exports =
               json = data.split('\n')
 
             exit: (code) ->
-              console.log "code is #{code}"
               return resolve [] unless code is 2
 
               info        = {"errors": []}
@@ -60,9 +59,17 @@ module.exports =
               return resolve [] unless info?
               return resolve [] if info.passed
 
+              docLinkPattern = ///\[(.+)\]$///i
+
               resolve info.errors.map (error) ->
+                errorName = error.split(':')[2].trim()
+                errorDesc = error.split(':')[3].split('[')[0].trim()
+                docLink   = error.match(docLinkPattern)[1]
+                errBadge  = '<span class="badge badge-flexible">reek</span>'
+                errHtml   = "#{errBadge} <a href='#{docLink}'>#{errorName}</a>: #{errorDesc}"
+
                 type: 'warning'
-                text: error.split(':')[2]           # text: error.message,
+                html: errHtml
                 filePath: filePath                  # filePath: error.file or filePath,
                 range: [
                   [parseInt(error.split(':')[1])-1, 0],
